@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Automatic">
+    <entity name="Formatted" representedClassName=".Formatted" syncable="YES">
+        <attribute name="buy" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="max24" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="min24" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeToSell" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedOn" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="update" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Update" inverseName="formatted" inverseEntity="Update" syncable="YES"/>
+    </entity>
+    <entity name="History" representedClassName=".History" syncable="YES">
+        <attribute name="gold" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="region" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Regions" inverseName="history" inverseEntity="Regions" syncable="YES"/>
+    </entity>
+    <entity name="Raw" representedClassName=".Raw" syncable="YES">
+        <attribute name="buy" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="max24" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="min24" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedOn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="update" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Update" inverseName="raw" inverseEntity="Update" syncable="YES"/>
+    </entity>
+    <entity name="Regions" representedClassName=".Regions" syncable="YES">
+        <attribute name="fullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="history" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="History" inverseName="region" inverseEntity="History" syncable="YES"/>
+        <relationship name="update" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Update" inverseName="region" inverseEntity="Update" syncable="YES"/>
+    </entity>
+    <entity name="Update" representedClassName=".Update" syncable="YES">
+        <attribute name="timestamp" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="formatted" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Formatted" inverseName="update" inverseEntity="Formatted" syncable="YES"/>
+        <relationship name="raw" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Raw" inverseName="update" inverseEntity="Raw" syncable="YES"/>
+        <relationship name="region" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Regions" inverseName="update" inverseEntity="Regions" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Regions" positionX="-387" positionY="-63" width="128" height="103"/>
+        <element name="Update" positionX="-135" positionY="9" width="128" height="103"/>
+        <element name="Raw" positionX="115" positionY="99" width="128" height="118"/>
+        <element name="Formatted" positionX="117" positionY="-63" width="128" height="133"/>
+        <element name="History" positionX="-153" positionY="200" width="128" height="88"/>
+    </elements>
+</model>

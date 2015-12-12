@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44223B761C013E2F00477EB3 /* money-gold.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44223B751C013E2F00477EB3 /* money-gold.gif */; };
+		44223B781C013E8D00477EB3 /* wowtokeninterlaced.png in Resources */ = {isa = PBXBuildFile; fileRef = 44223B771C013E8D00477EB3 /* wowtokeninterlaced.png */; };
+		44223B7C1C01400300477EB3 /* RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44223B7B1C01400300477EB3 /* RoundedRect.swift */; };
+		4453C38E1BFFCFB9009ECC6B /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453C38D1BFFCFB9009ECC6B /* DataHandler.swift */; };
+		44599F3C1C01D228006777EE /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44599F3B1C01D228006777EE /* ArrowView.swift */; };
+		445AD7191C014ED9009E6B1F /* icon-ios7-gear-outline-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 445AD7181C014ED9009E6B1F /* icon-ios7-gear-outline-128.png */; };
+		446202B91C092E02005EE7C9 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446202B81C092E02005EE7C9 /* Button.swift */; };
+		446202BB1C094BA3005EE7C9 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446202BA1C094BA3005EE7C9 /* HistoryViewController.swift */; };
+		446202BD1C094C79005EE7C9 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446202BC1C094C79005EE7C9 /* GraphView.swift */; };
+		4466B3151C0A28520048378A /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4466B3141C0A28520048378A /* SettingsTableViewController.swift */; };
+		4466B3171C0A41530048378A /* UpdateIntervalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4466B3161C0A41530048378A /* UpdateIntervalTableViewController.swift */; };
+		44A80EFB1BF9AE4100E8B302 /* Update+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF11BF9AE4100E8B302 /* Update+CoreDataProperties.swift */; };
+		44A80EFC1BF9AE4100E8B302 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF21BF9AE4100E8B302 /* Update.swift */; };
+		44A80EFD1BF9AE4100E8B302 /* Raw+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF31BF9AE4100E8B302 /* Raw+CoreDataProperties.swift */; };
+		44A80EFE1BF9AE4100E8B302 /* Raw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF41BF9AE4100E8B302 /* Raw.swift */; };
+		44A80EFF1BF9AE4100E8B302 /* History+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF51BF9AE4100E8B302 /* History+CoreDataProperties.swift */; };
+		44A80F001BF9AE4100E8B302 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF61BF9AE4100E8B302 /* History.swift */; };
+		44A80F011BF9AE4100E8B302 /* Regions+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF71BF9AE4100E8B302 /* Regions+CoreDataProperties.swift */; };
+		44A80F021BF9AE4100E8B302 /* Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF81BF9AE4100E8B302 /* Regions.swift */; };
+		44A80F031BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF91BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift */; };
+		44A80F041BF9AE4100E8B302 /* Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EFA1BF9AE4100E8B302 /* Formatted.swift */; };
+		44D068C31BF6553E00920420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D068C21BF6553E00920420 /* AppDelegate.swift */; };
+		44D068C51BF6553E00920420 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D068C41BF6553E00920420 /* MainViewController.swift */; };
+		44D068C81BF6553E00920420 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D068C61BF6553E00920420 /* Main.storyboard */; };
+		44D068CB1BF6553E00920420 /* WowToken.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D068C91BF6553E00920420 /* WowToken.xcdatamodeld */; };
+		44D068CD1BF6553F00920420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D068CC1BF6553F00920420 /* Assets.xcassets */; };
+		44D068D01BF6553F00920420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D068CE1BF6553F00920420 /* LaunchScreen.storyboard */; };
+		44D068D81BF65C2200920420 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D068D71BF65C2200920420 /* SwiftyJSON.swift */; };
+		44FCBBD01C09E8E300ECD530 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FCBBCF1C09E8E300ECD530 /* LinksViewController.swift */; };
+		44FCBBD41C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FCBBD31C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png */; };
+		44FCBBD61C0A039500ECD530 /* faqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FCBBD51C0A039500ECD530 /* faqViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		44223B751C013E2F00477EB3 /* money-gold.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "money-gold.gif"; sourceTree = "<group>"; };
+		44223B771C013E8D00477EB3 /* wowtokeninterlaced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wowtokeninterlaced.png; sourceTree = "<group>"; };
+		44223B7B1C01400300477EB3 /* RoundedRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedRect.swift; path = ../RoundedRect.swift; sourceTree = "<group>"; };
+		4453C38D1BFFCFB9009ECC6B /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		44599F3B1C01D228006777EE /* ArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
+		445AD7181C014ED9009E6B1F /* icon-ios7-gear-outline-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-gear-outline-128.png"; sourceTree = "<group>"; };
+		446202B81C092E02005EE7C9 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		446202BA1C094BA3005EE7C9 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		446202BC1C094C79005EE7C9 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		4466B3141C0A28520048378A /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		4466B3161C0A41530048378A /* UpdateIntervalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateIntervalTableViewController.swift; sourceTree = "<group>"; };
+		44A80EF11BF9AE4100E8B302 /* Update+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Update+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		44A80EF21BF9AE4100E8B302 /* Update.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
+		44A80EF31BF9AE4100E8B302 /* Raw+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Raw+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		44A80EF41BF9AE4100E8B302 /* Raw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Raw.swift; sourceTree = "<group>"; };
+		44A80EF51BF9AE4100E8B302 /* History+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "History+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		44A80EF61BF9AE4100E8B302 /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		44A80EF71BF9AE4100E8B302 /* Regions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Regions+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		44A80EF81BF9AE4100E8B302 /* Regions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regions.swift; sourceTree = "<group>"; };
+		44A80EF91BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatted+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		44A80EFA1BF9AE4100E8B302 /* Formatted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatted.swift; sourceTree = "<group>"; };
+		44D068BF1BF6553E00920420 /* WowToken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowToken.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44D068C21BF6553E00920420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		44D068C41BF6553E00920420 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		44D068C71BF6553E00920420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		44D068CA1BF6553E00920420 /* WowToken.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WowToken.xcdatamodel; sourceTree = "<group>"; };
+		44D068CC1BF6553F00920420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		44D068CF1BF6553F00920420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		44D068D11BF6553F00920420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44D068D71BF65C2200920420 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		44FCBBCF1C09E8E300ECD530 /* LinksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
+		44FCBBD31C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wowtokeninterlaced.blacknwhite.png; sourceTree = "<group>"; };
+		44FCBBD51C0A039500ECD530 /* faqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = faqViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		44D068BC1BF6553E00920420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		44C9F6691C1B08C5007C82CC /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				446202BC1C094C79005EE7C9 /* GraphView.swift */,
+				44223B7B1C01400300477EB3 /* RoundedRect.swift */,
+				446202B81C092E02005EE7C9 /* Button.swift */,
+				44599F3B1C01D228006777EE /* ArrowView.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		44C9F66A1C1B08DA007C82CC /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				44D068D71BF65C2200920420 /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
+			sourceTree = "<group>";
+		};
+		44C9F66B1C1B08EE007C82CC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				44D068C41BF6553E00920420 /* MainViewController.swift */,
+				446202BA1C094BA3005EE7C9 /* HistoryViewController.swift */,
+				44FCBBCF1C09E8E300ECD530 /* LinksViewController.swift */,
+				4466B3141C0A28520048378A /* SettingsTableViewController.swift */,
+				4466B3161C0A41530048378A /* UpdateIntervalTableViewController.swift */,
+				44FCBBD51C0A039500ECD530 /* faqViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		44C9F66C1C1B090D007C82CC /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				44D068C21BF6553E00920420 /* AppDelegate.swift */,
+				4453C38D1BFFCFB9009ECC6B /* DataHandler.swift */,
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
+		44D068B61BF6553E00920420 = {
+			isa = PBXGroup;
+			children = (
+				44FE99E91BFA3F110025DCDE /* Images */,
+				44FE99E61BFA3BD10025DCDE /* CoreDataSwifts */,
+				44D068C11BF6553E00920420 /* WowToken */,
+				44D068C01BF6553E00920420 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		44D068C01BF6553E00920420 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				44D068BF1BF6553E00920420 /* WowToken.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		44D068C11BF6553E00920420 /* WowToken */ = {
+			isa = PBXGroup;
+			children = (
+				44C9F66A1C1B08DA007C82CC /* SwiftyJSON */,
+				44C9F6691C1B08C5007C82CC /* Custom Views */,
+				44C9F66C1C1B090D007C82CC /* Global */,
+				44C9F66B1C1B08EE007C82CC /* View Controllers */,
+				44D068C61BF6553E00920420 /* Main.storyboard */,
+				44D068CC1BF6553F00920420 /* Assets.xcassets */,
+				44D068CE1BF6553F00920420 /* LaunchScreen.storyboard */,
+				44D068D11BF6553F00920420 /* Info.plist */,
+				44D068C91BF6553E00920420 /* WowToken.xcdatamodeld */,
+			);
+			path = WowToken;
+			sourceTree = "<group>";
+		};
+		44FE99E61BFA3BD10025DCDE /* CoreDataSwifts */ = {
+			isa = PBXGroup;
+			children = (
+				44A80EF11BF9AE4100E8B302 /* Update+CoreDataProperties.swift */,
+				44A80EF21BF9AE4100E8B302 /* Update.swift */,
+				44A80EF31BF9AE4100E8B302 /* Raw+CoreDataProperties.swift */,
+				44A80EF41BF9AE4100E8B302 /* Raw.swift */,
+				44A80EF51BF9AE4100E8B302 /* History+CoreDataProperties.swift */,
+				44A80EF61BF9AE4100E8B302 /* History.swift */,
+				44A80EF71BF9AE4100E8B302 /* Regions+CoreDataProperties.swift */,
+				44A80EF81BF9AE4100E8B302 /* Regions.swift */,
+				44A80EF91BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift */,
+				44A80EFA1BF9AE4100E8B302 /* Formatted.swift */,
+			);
+			name = CoreDataSwifts;
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		44FE99E91BFA3F110025DCDE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				44223B751C013E2F00477EB3 /* money-gold.gif */,
+				44223B771C013E8D00477EB3 /* wowtokeninterlaced.png */,
+				445AD7181C014ED9009E6B1F /* icon-ios7-gear-outline-128.png */,
+				44FCBBD31C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		44D068BE1BF6553E00920420 /* WowToken */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44D068D41BF6553F00920420 /* Build configuration list for PBXNativeTarget "WowToken" */;
+			buildPhases = (
+				44D068BB1BF6553E00920420 /* Sources */,
+				44D068BC1BF6553E00920420 /* Frameworks */,
+				44D068BD1BF6553E00920420 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WowToken;
+			productName = WowToken;
+			productReference = 44D068BF1BF6553E00920420 /* WowToken.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		44D068B71BF6553E00920420 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Tairpake Inc.";
+				TargetAttributes = {
+					44D068BE1BF6553E00920420 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = C24GA92R9Q;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 44D068BA1BF6553E00920420 /* Build configuration list for PBXProject "WowToken" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 44D068B61BF6553E00920420;
+			productRefGroup = 44D068C01BF6553E00920420 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				44D068BE1BF6553E00920420 /* WowToken */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		44D068BD1BF6553E00920420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44FCBBD41C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png in Resources */,
+				44D068D01BF6553F00920420 /* LaunchScreen.storyboard in Resources */,
+				44223B781C013E8D00477EB3 /* wowtokeninterlaced.png in Resources */,
+				44223B761C013E2F00477EB3 /* money-gold.gif in Resources */,
+				44D068CD1BF6553F00920420 /* Assets.xcassets in Resources */,
+				44D068C81BF6553E00920420 /* Main.storyboard in Resources */,
+				445AD7191C014ED9009E6B1F /* icon-ios7-gear-outline-128.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		44D068BB1BF6553E00920420 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44A80EFC1BF9AE4100E8B302 /* Update.swift in Sources */,
+				44A80EFB1BF9AE4100E8B302 /* Update+CoreDataProperties.swift in Sources */,
+				44A80F031BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift in Sources */,
+				4453C38E1BFFCFB9009ECC6B /* DataHandler.swift in Sources */,
+				44D068C51BF6553E00920420 /* MainViewController.swift in Sources */,
+				44A80F011BF9AE4100E8B302 /* Regions+CoreDataProperties.swift in Sources */,
+				44D068CB1BF6553E00920420 /* WowToken.xcdatamodeld in Sources */,
+				446202B91C092E02005EE7C9 /* Button.swift in Sources */,
+				44A80F001BF9AE4100E8B302 /* History.swift in Sources */,
+				44FCBBD61C0A039500ECD530 /* faqViewController.swift in Sources */,
+				44A80EFD1BF9AE4100E8B302 /* Raw+CoreDataProperties.swift in Sources */,
+				44A80F021BF9AE4100E8B302 /* Regions.swift in Sources */,
+				44223B7C1C01400300477EB3 /* RoundedRect.swift in Sources */,
+				44A80EFF1BF9AE4100E8B302 /* History+CoreDataProperties.swift in Sources */,
+				44A80F041BF9AE4100E8B302 /* Formatted.swift in Sources */,
+				44599F3C1C01D228006777EE /* ArrowView.swift in Sources */,
+				446202BD1C094C79005EE7C9 /* GraphView.swift in Sources */,
+				4466B3171C0A41530048378A /* UpdateIntervalTableViewController.swift in Sources */,
+				44D068C31BF6553E00920420 /* AppDelegate.swift in Sources */,
+				446202BB1C094BA3005EE7C9 /* HistoryViewController.swift in Sources */,
+				44A80EFE1BF9AE4100E8B302 /* Raw.swift in Sources */,
+				44FCBBD01C09E8E300ECD530 /* LinksViewController.swift in Sources */,
+				4466B3151C0A28520048378A /* SettingsTableViewController.swift in Sources */,
+				44D068D81BF65C2200920420 /* SwiftyJSON.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		44D068C61BF6553E00920420 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44D068C71BF6553E00920420 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		44D068CE1BF6553F00920420 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				44D068CF1BF6553F00920420 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		44D068D21BF6553F00920420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		44D068D31BF6553F00920420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44D068D51BF6553F00920420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WowToken/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tp.WowToken;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		44D068D61BF6553F00920420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WowToken/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Tp.WowToken;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		44D068BA1BF6553E00920420 /* Build configuration list for PBXProject "WowToken" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44D068D21BF6553F00920420 /* Debug */,
+				44D068D31BF6553F00920420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44D068D41BF6553F00920420 /* Build configuration list for PBXNativeTarget "WowToken" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44D068D51BF6553F00920420 /* Debug */,
+				44D068D61BF6553F00920420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		44D068C91BF6553E00920420 /* WowToken.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				44D068CA1BF6553E00920420 /* WowToken.xcdatamodel */,
+			);
+			currentVersion = 44D068CA1BF6553E00920420 /* WowToken.xcdatamodel */;
+			path = WowToken.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 44D068B71BF6553E00920420 /* Project object */;
+}
