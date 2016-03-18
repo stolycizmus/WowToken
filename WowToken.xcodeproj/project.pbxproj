@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441B7F261C9B54640009A6F4 /* RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B7F251C9B54640009A6F4 /* RoundedRect.swift */; };
+		441B7F281C9B54C60009A6F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 441B7F271C9B54C60009A6F4 /* Default-568h@2x.png */; };
 		44223B761C013E2F00477EB3 /* money-gold.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44223B751C013E2F00477EB3 /* money-gold.gif */; };
 		44223B781C013E8D00477EB3 /* wowtokeninterlaced.png in Resources */ = {isa = PBXBuildFile; fileRef = 44223B771C013E8D00477EB3 /* wowtokeninterlaced.png */; };
-		44223B7C1C01400300477EB3 /* RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44223B7B1C01400300477EB3 /* RoundedRect.swift */; };
 		4453C38E1BFFCFB9009ECC6B /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453C38D1BFFCFB9009ECC6B /* DataHandler.swift */; };
 		44599F3C1C01D228006777EE /* ArrowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44599F3B1C01D228006777EE /* ArrowView.swift */; };
 		445AD7191C014ED9009E6B1F /* icon-ios7-gear-outline-128.png in Resources */ = {isa = PBXBuildFile; fileRef = 445AD7181C014ED9009E6B1F /* icon-ios7-gear-outline-128.png */; };
@@ -41,9 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		441B7F251C9B54640009A6F4 /* RoundedRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRect.swift; sourceTree = "<group>"; };
+		441B7F271C9B54C60009A6F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		44223B751C013E2F00477EB3 /* money-gold.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "money-gold.gif"; sourceTree = "<group>"; };
 		44223B771C013E8D00477EB3 /* wowtokeninterlaced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wowtokeninterlaced.png; sourceTree = "<group>"; };
-		44223B7B1C01400300477EB3 /* RoundedRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedRect.swift; path = ../RoundedRect.swift; sourceTree = "<group>"; };
 		4453C38D1BFFCFB9009ECC6B /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 		44599F3B1C01D228006777EE /* ArrowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowView.swift; sourceTree = "<group>"; };
 		445AD7181C014ED9009E6B1F /* icon-ios7-gear-outline-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-gear-outline-128.png"; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				446202BC1C094C79005EE7C9 /* GraphView.swift */,
-				44223B7B1C01400300477EB3 /* RoundedRect.swift */,
+				441B7F251C9B54640009A6F4 /* RoundedRect.swift */,
 				446202B81C092E02005EE7C9 /* Button.swift */,
 				44599F3B1C01D228006777EE /* ArrowView.swift */,
 			);
@@ -131,6 +133,7 @@
 		44D068B61BF6553E00920420 = {
 			isa = PBXGroup;
 			children = (
+				441B7F271C9B54C60009A6F4 /* Default-568h@2x.png */,
 				44FE99E91BFA3F110025DCDE /* Images */,
 				44FE99E61BFA3BD10025DCDE /* CoreDataSwifts */,
 				44D068C11BF6553E00920420 /* WowToken */,
@@ -260,6 +263,7 @@
 				44223B781C013E8D00477EB3 /* wowtokeninterlaced.png in Resources */,
 				44223B761C013E2F00477EB3 /* money-gold.gif in Resources */,
 				44D068CD1BF6553F00920420 /* Assets.xcassets in Resources */,
+				441B7F281C9B54C60009A6F4 /* Default-568h@2x.png in Resources */,
 				44D068C81BF6553E00920420 /* Main.storyboard in Resources */,
 				445AD7191C014ED9009E6B1F /* icon-ios7-gear-outline-128.png in Resources */,
 			);
@@ -284,7 +288,6 @@
 				44FCBBD61C0A039500ECD530 /* faqViewController.swift in Sources */,
 				44A80EFD1BF9AE4100E8B302 /* Raw+CoreDataProperties.swift in Sources */,
 				44A80F021BF9AE4100E8B302 /* Regions.swift in Sources */,
-				44223B7C1C01400300477EB3 /* RoundedRect.swift in Sources */,
 				44A80EFF1BF9AE4100E8B302 /* History+CoreDataProperties.swift in Sources */,
 				44A80F041BF9AE4100E8B302 /* Formatted.swift in Sources */,
 				44599F3C1C01D228006777EE /* ArrowView.swift in Sources */,
@@ -295,6 +298,7 @@
 				44A80EFE1BF9AE4100E8B302 /* Raw.swift in Sources */,
 				44FCBBD01C09E8E300ECD530 /* LinksViewController.swift in Sources */,
 				4466B3151C0A28520048378A /* SettingsTableViewController.swift in Sources */,
+				441B7F261C9B54640009A6F4 /* RoundedRect.swift in Sources */,
 				44D068D81BF65C2200920420 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

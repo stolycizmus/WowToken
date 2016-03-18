@@ -25,6 +25,8 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var minLabel: UILabel!
     @IBOutlet weak var maxLabel: UILabel!
     
+    @IBOutlet weak var noDataLabel: UILabel!
+    
     let intervallums: [Double] = [10800, 43200, 86400, 604800]
     var navigated = false
     
@@ -76,17 +78,37 @@ class HistoryViewController: UIViewController {
                 }
             }
         } catch {}
-        startDateLabel.text = graphPointsLabelText.first
-        endDateLabel.text = graphPointsLabelText.last
-        middleDateLabel.text = graphPointsLabelText[graphPointsLabelText.count/2]
-        graphView.graphPoints = graphPoints
-        let maxValue = round(graphPoints.maxElement()!/100)
-        let minValue = round(graphPoints.minElement()!/100)
-        let middleValue = (maxValue-minValue)/2 + minValue
-        maxLabel.text = (maxValue/10).description + "k"
-        minLabel.text = (minValue/10).description + "k"
-        middleLabel.text = (middleValue/10).description + "k"
-        graphView.setNeedsDisplay()
+        //if no data fetched from core data - eg. the server not provided data back to bottomtime
+        if !graphPoints.isEmpty {
+            //load graphview with data points
+            graphView.nodata = false
+            for subview in graphView.subviews {
+                    subview.hidden = false
+            }
+            noDataLabel.hidden = true
+            startDateLabel.text = graphPointsLabelText.first
+            endDateLabel.text = graphPointsLabelText.last
+            middleDateLabel.text = graphPointsLabelText[graphPointsLabelText.count/2]
+            graphView.graphPoints = graphPoints
+            let maxValue = round(graphPoints.maxElement()!/100)
+            let minValue = round(graphPoints.minElement()!/100)
+            let middleValue = (maxValue-minValue)/2 + minValue
+            maxLabel.text = (maxValue/10).description + "k"
+            minLabel.text = (minValue/10).description + "k"
+            middleLabel.text = (middleValue/10).description + "k"
+            graphView.setNeedsDisplay()
+        } else {
+            //do this if no data points fetched
+            graphView.nodata = true
+            for subview in graphView.subviews {
+                //if subview.tag = 10 then its the title of the graphview, that shouldn't be hidden
+                if subview.tag != 10 {
+                    subview.hidden = true
+                }
+            }
+            noDataLabel.hidden = false
+            graphView.setNeedsDisplay()
+        }
     }
     
     func fetchLabelsData() {
@@ -105,7 +127,7 @@ class HistoryViewController: UIViewController {
                 }
             }
         } catch {}
-        
+        if !data.isEmpty {
         var average = 0
         for item in data {
             average += item
@@ -115,6 +137,11 @@ class HistoryViewController: UIViewController {
         averageLabel?.text = "Daily average: \(average) gold"
         dailyMaxLabel?.text = "Daily maximum: \(data.maxElement()!) gold"
         dailyMinLabel?.text = "Daily minimum:  \(data.minElement()!) gold"
+        } else {
+            averageLabel?.text = ""
+            dailyMaxLabel?.text = ""
+            dailyMinLabel?.text = ""
+        }
     }
     
     /*

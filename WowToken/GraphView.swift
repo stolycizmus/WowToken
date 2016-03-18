@@ -14,6 +14,7 @@ import UIKit
     @IBInspectable var endColor: UIColor = UIColor.greenColor()
     
     var graphPoints: [Double] = [4,2,6,4,5,8,3]
+    var nodata = false
 
     override func drawRect(rect: CGRect) {
         let width = rect.width
@@ -34,6 +35,9 @@ import UIKit
         var startPoint = CGPoint.zero
         var endPoint = CGPoint(x: 0, y: self.bounds.height)
         CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, CGGradientDrawingOptions())
+        
+        //check if graphview should load with or without graph points (data)
+        if !nodata {
         
         let margin: CGFloat = width*0.15
         let columnXPoint = { (column: Int)->CGFloat in
@@ -107,6 +111,8 @@ import UIKit
         
         linePath.lineWidth = 1.0
         linePath.stroke()
+        
+        }
         
     }
 }
