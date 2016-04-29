@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		441B7F261C9B54640009A6F4 /* RoundedRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B7F251C9B54640009A6F4 /* RoundedRect.swift */; };
-		441B7F281C9B54C60009A6F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 441B7F271C9B54C60009A6F4 /* Default-568h@2x.png */; };
 		44223B761C013E2F00477EB3 /* money-gold.gif in Resources */ = {isa = PBXBuildFile; fileRef = 44223B751C013E2F00477EB3 /* money-gold.gif */; };
 		44223B781C013E8D00477EB3 /* wowtokeninterlaced.png in Resources */ = {isa = PBXBuildFile; fileRef = 44223B771C013E8D00477EB3 /* wowtokeninterlaced.png */; };
 		4453C38E1BFFCFB9009ECC6B /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4453C38D1BFFCFB9009ECC6B /* DataHandler.swift */; };
@@ -43,7 +42,6 @@
 
 /* Begin PBXFileReference section */
 		441B7F251C9B54640009A6F4 /* RoundedRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedRect.swift; sourceTree = "<group>"; };
-		441B7F271C9B54C60009A6F4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		44223B751C013E2F00477EB3 /* money-gold.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "money-gold.gif"; sourceTree = "<group>"; };
 		44223B771C013E8D00477EB3 /* wowtokeninterlaced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wowtokeninterlaced.png; sourceTree = "<group>"; };
 		4453C38D1BFFCFB9009ECC6B /* DataHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 		44D068B61BF6553E00920420 = {
 			isa = PBXGroup;
 			children = (
-				441B7F271C9B54C60009A6F4 /* Default-568h@2x.png */,
 				44FE99E91BFA3F110025DCDE /* Images */,
 				44FE99E61BFA3BD10025DCDE /* CoreDataSwifts */,
 				44D068C11BF6553E00920420 /* WowToken */,
@@ -263,7 +260,6 @@
 				44223B781C013E8D00477EB3 /* wowtokeninterlaced.png in Resources */,
 				44223B761C013E2F00477EB3 /* money-gold.gif in Resources */,
 				44D068CD1BF6553F00920420 /* Assets.xcassets in Resources */,
-				441B7F281C9B54C60009A6F4 /* Default-568h@2x.png in Resources */,
 				44D068C81BF6553E00920420 /* Main.storyboard in Resources */,
 				445AD7191C014ED9009E6B1F /* icon-ios7-gear-outline-128.png in Resources */,
 			);

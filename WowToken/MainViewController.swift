@@ -66,7 +66,8 @@ class MainViewController: UIViewController, NSURLSessionDownloadDelegate {
     func switchAutoUpdate(turnOn: Bool) {
         if turnOn {
             AppDelegate.sharedAppDelegate.updateTimer = NSTimer.scheduledTimerWithTimeInterval(userDefaults.valueForKey("updateTimer") as! Double, target: self, selector: "updateWowTokenData", userInfo: nil, repeats: true)
-            UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(NSTimeInterval(10))
+            let updateTimeInterval = userDefaults.valueForKey("updateTimer") as! NSTimeInterval
+            UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(updateTimeInterval)
         } else {
             AppDelegate.sharedAppDelegate.updateTimer.invalidate()
         }
