@@ -87,6 +87,19 @@ class HistoryViewController: UIViewController {
             for subview in graphView.subviews {
                     subview.hidden = false
             }
+            //9-member moving average for "1 week" datapoints
+            if sender.selectedSegmentIndex  == 3 {
+                var avgPoints: [Double] = []
+                for index in 4...(graphPoints.count-5) {
+                    var newElement = Double(0)
+                    for _index in index-4...index+4 {
+                        newElement += graphPoints[_index]
+                    }
+                    newElement = newElement/9
+                    avgPoints.append(newElement)
+                }
+                graphPoints = avgPoints
+            }
             noDataLabel.hidden = true
             startDateLabel.text = graphPointsLabelText.first
             endDateLabel.text = graphPointsLabelText.last
