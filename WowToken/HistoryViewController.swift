@@ -54,13 +54,13 @@ class HistoryViewController: UIViewController {
             dateFormatter.dateFormat = "HH:mm"
             graphTitleLabel.text = "Buyprice in the last 3 hours"
         case 1:
-            dateFormatter.dateFormat = "MMMdd. HH:mm"
+            dateFormatter.dateFormat = "MMM dd. HH:mm"
             graphTitleLabel.text = "Buyprice in the last 12 hours"
         case 2:
-            dateFormatter.dateFormat = "MMMdd. HH:mm"
+            dateFormatter.dateFormat = "MMM dd. HH:mm"
             graphTitleLabel.text = "Buyprice in the past 1 day"
         case 3:
-            dateFormatter.dateFormat = "MMMdd."
+            dateFormatter.dateFormat = "MMM dd."
             graphTitleLabel.text = "Buyprice in the past 1 week"
         default: break
         }
@@ -72,9 +72,11 @@ class HistoryViewController: UIViewController {
         do {
             if let result = try moc.executeFetchRequest(fetchRequest) as? [History] {
                 for history in result {
-                    graphPoints.append(history.gold as! Double)
+                    if graphPoints.last != (history.gold as! Double) {
+                        graphPoints.append(history.gold as! Double)
                     let timeInterval = history.time as! Double
                     graphPointsLabelText.append(dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: timeInterval)))
+                    }
                 }
             }
         } catch {}

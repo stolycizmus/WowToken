@@ -76,11 +76,11 @@ import CoreData
             formatted.updatedOn = formattedData["updated"] as? String
             formatted.update = update
             
-            let historyData = json["history"][prefferedRegion].arrayObject!
+            let historyData = json["history"][prefferedRegion].arrayValue
             for history in historyData {
                 let _history = History(entity: NSEntityDescription.entityForName("History", inManagedObjectContext: managedObjectContext)!, insertIntoManagedObjectContext: managedObjectContext)
-                _history.gold = history[1] as? NSNumber
-                _history.time = history[0] as? NSNumber
+                _history.gold = history[1].intValue as NSNumber
+                _history.time = history[0].intValue as NSNumber
                 _history.region = region
             }
         }

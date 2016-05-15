@@ -65,7 +65,7 @@ class MainViewController: UIViewController, NSURLSessionDownloadDelegate {
 
     func switchAutoUpdate(turnOn: Bool) {
         if turnOn {
-            AppDelegate.sharedAppDelegate.updateTimer = NSTimer.scheduledTimerWithTimeInterval(userDefaults.valueForKey("updateTimer") as! Double, target: self, selector: "updateWowTokenData", userInfo: nil, repeats: true)
+            AppDelegate.sharedAppDelegate.updateTimer = NSTimer.scheduledTimerWithTimeInterval(userDefaults.valueForKey("updateTimer") as! Double, target: self, selector: Selector("updateWowTokenData"), userInfo: nil, repeats: true)
             let updateTimeInterval = userDefaults.valueForKey("updateTimer") as! NSTimeInterval
             UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(updateTimeInterval)
         } else {
@@ -155,10 +155,14 @@ class MainViewController: UIViewController, NSURLSessionDownloadDelegate {
             fetchRequest = NSFetchRequest(entityName: "History")
             fetchRequest.predicate = NSPredicate(format: "region.shortName == %@", prefferedRegion)
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: false)]
-            fetchRequest.fetchLimit = 1
+            fetchRequest.fetchLimit = 10
             do {
                 if let result = try moc.executeFetchRequest(fetchRequest) as? [History]{
-                    let latest = result[0].gold as! Int
+                    var i = 0
+                    while (currentRawPrice == (result[i].gold as! Int)) && i<10 {
+                        i += 1
+                    }
+                    let latest = result[i].gold as! Int
                     if latest < currentRawPrice {
                         arrowView.isUp = true
                     } else {
