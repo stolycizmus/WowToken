@@ -28,13 +28,13 @@
 		44A80F021BF9AE4100E8B302 /* Regions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF81BF9AE4100E8B302 /* Regions.swift */; };
 		44A80F031BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EF91BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift */; };
 		44A80F041BF9AE4100E8B302 /* Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A80EFA1BF9AE4100E8B302 /* Formatted.swift */; };
+		44CADA591D9E8ADD000574D8 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CADA581D9E8ADD000574D8 /* SwiftyJSON.swift */; };
 		44D068C31BF6553E00920420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D068C21BF6553E00920420 /* AppDelegate.swift */; };
 		44D068C51BF6553E00920420 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D068C41BF6553E00920420 /* MainViewController.swift */; };
 		44D068C81BF6553E00920420 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D068C61BF6553E00920420 /* Main.storyboard */; };
 		44D068CB1BF6553E00920420 /* WowToken.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44D068C91BF6553E00920420 /* WowToken.xcdatamodeld */; };
 		44D068CD1BF6553F00920420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D068CC1BF6553F00920420 /* Assets.xcassets */; };
 		44D068D01BF6553F00920420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D068CE1BF6553F00920420 /* LaunchScreen.storyboard */; };
-		44D068D81BF65C2200920420 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D068D71BF65C2200920420 /* SwiftyJSON.swift */; };
 		44FCBBD01C09E8E300ECD530 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FCBBCF1C09E8E300ECD530 /* LinksViewController.swift */; };
 		44FCBBD41C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 44FCBBD31C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png */; };
 		44FCBBD61C0A039500ECD530 /* faqViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FCBBD51C0A039500ECD530 /* faqViewController.swift */; };
@@ -62,6 +62,7 @@
 		44A80EF81BF9AE4100E8B302 /* Regions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regions.swift; sourceTree = "<group>"; };
 		44A80EF91BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatted+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		44A80EFA1BF9AE4100E8B302 /* Formatted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatted.swift; sourceTree = "<group>"; };
+		44CADA581D9E8ADD000574D8 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		44D068BF1BF6553E00920420 /* WowToken.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowToken.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D068C21BF6553E00920420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D068C41BF6553E00920420 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		44D068CC1BF6553F00920420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D068CF1BF6553F00920420 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D068D11BF6553F00920420 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44D068D71BF65C2200920420 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		44FCBBCF1C09E8E300ECD530 /* LinksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
 		44FCBBD31C09EEE100ECD530 /* wowtokeninterlaced.blacknwhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wowtokeninterlaced.blacknwhite.png; sourceTree = "<group>"; };
 		44FCBBD51C0A039500ECD530 /* faqViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = faqViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		44C9F66A1C1B08DA007C82CC /* SwiftyJSON */ = {
 			isa = PBXGroup;
 			children = (
-				44D068D71BF65C2200920420 /* SwiftyJSON.swift */,
+				44CADA581D9E8ADD000574D8 /* SwiftyJSON.swift */,
 			);
 			name = SwiftyJSON;
 			sourceTree = "<group>";
@@ -218,12 +218,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Tairpake Inc.";
 				TargetAttributes = {
 					44D068BE1BF6553E00920420 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = C24GA92R9Q;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -275,6 +276,7 @@
 				44A80EFC1BF9AE4100E8B302 /* Update.swift in Sources */,
 				44A80EFB1BF9AE4100E8B302 /* Update+CoreDataProperties.swift in Sources */,
 				44A80F031BF9AE4100E8B302 /* Formatted+CoreDataProperties.swift in Sources */,
+				44CADA591D9E8ADD000574D8 /* SwiftyJSON.swift in Sources */,
 				4453C38E1BFFCFB9009ECC6B /* DataHandler.swift in Sources */,
 				44D068C51BF6553E00920420 /* MainViewController.swift in Sources */,
 				44A80F011BF9AE4100E8B302 /* Regions+CoreDataProperties.swift in Sources */,
@@ -295,7 +297,6 @@
 				44FCBBD01C09E8E300ECD530 /* LinksViewController.swift in Sources */,
 				4466B3151C0A28520048378A /* SettingsTableViewController.swift in Sources */,
 				441B7F261C9B54640009A6F4 /* RoundedRect.swift in Sources */,
-				44D068D81BF65C2200920420 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,8 +335,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -357,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -379,8 +382,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -396,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -410,12 +415,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C24GA92R9Q;
 				INFOPLIST_FILE = WowToken/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tp.WowToken;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -425,12 +432,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C24GA92R9Q;
 				INFOPLIST_FILE = WowToken/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tp.WowToken;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

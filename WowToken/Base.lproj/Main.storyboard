@@ -224,9 +224,6 @@
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-gold.gif" translatesAutoresizingMaskIntoConstraints="NO" id="hk2-97-mEg">
                                                 <rect key="frame" x="120" y="4" width="13" height="13"/>
-                                                <variation key="heightClass=compact-widthClass=regular" misplaced="YES">
-                                                    <rect key="frame" x="120" y="4" width="13" height="13"/>
-                                                </variation>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -363,8 +360,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uRx-UJ-By2" userLabel="Button Stack View">
                                 <rect key="frame" x="365" y="108" width="170" height="384"/>
                                 <subviews>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OOQ-Ae-vNl" userLabel="History">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="128"/>
+                                    <view opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOQ-Ae-vNl" userLabel="History">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="121"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWw-Lv-hOa" customClass="Button" customModule="WowToken" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="49" width="170" height="30"/>
@@ -408,8 +405,8 @@
                                             </mask>
                                         </variation>
                                     </view>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3WS-lb-aLy" userLabel="Links">
-                                        <rect key="frame" x="0.0" y="128" width="170" height="128"/>
+                                    <view opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3WS-lb-aLy" userLabel="Links">
+                                        <rect key="frame" x="0.0" y="131" width="170" height="122"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDs-LL-DtJ" customClass="Button" customModule="WowToken" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="49" width="170" height="30"/>
@@ -442,8 +439,8 @@
                                             <constraint firstItem="TDs-LL-DtJ" firstAttribute="centerX" secondItem="3WS-lb-aLy" secondAttribute="centerX" id="Zzy-Qr-6yU"/>
                                         </constraints>
                                     </view>
-                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4N-Wf-5eS" userLabel="FAQ">
-                                        <rect key="frame" x="0.0" y="256" width="170" height="128"/>
+                                    <view opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4N-Wf-5eS" userLabel="FAQ">
+                                        <rect key="frame" x="0.0" y="263" width="170" height="121"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DxF-JH-6os" customClass="Button" customModule="WowToken" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="49" width="170" height="30"/>

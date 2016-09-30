@@ -42,13 +42,13 @@ class HistoryViewController: UIViewController {
         }
     }
     
-    @IBAction func fetchGraphData(sender: UISegmentedControl){
-        let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.valueForKey("prefferedRegion") as! String
+    @IBAction func fetchGraphData(_ sender: UISegmentedControl){
+        let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "prefferedRegion") as! String
         var graphPoints = [Double]()
         var graphPointsLabelText = [String]()
         
-        let bottomTime = NSDate(timeIntervalSinceNow: 0).timeIntervalSince1970-intervallums[intervallumPicker.selectedSegmentIndex]
-        let dateFormatter = NSDateFormatter()
+        let bottomTime = Date(timeIntervalSinceNow: 0).timeIntervalSince1970-intervallums[intervallumPicker.selectedSegmentIndex]
+        let dateFormatter = DateFormatter()
         switch sender.selectedSegmentIndex {
         case 0:
             dateFormatter.dateFormat = "HH:mm"
@@ -66,16 +66,16 @@ class HistoryViewController: UIViewController {
         }
             
         let moc = AppDelegate.sharedAppDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "History")
-        fetchRequest.predicate = NSPredicate(format: "region.shortName == %@ AND time>=\(Int(bottomTime))" ,prefferedRegion)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
+        let fetchRequestHistory: NSFetchRequest<History> = NSFetchRequest(entityName: "History")
+        fetchRequestHistory.predicate = NSPredicate(format: "region.shortName == %@ AND time>=\(Int(bottomTime))" ,prefferedRegion)
+        fetchRequestHistory.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
         do {
-            if let result = try moc.executeFetchRequest(fetchRequest) as? [History] {
+            if let result = try moc.fetch(fetchRequestHistory) as? [History] {
                 for history in result {
                     if graphPoints.last != (history.gold as! Double) {
                         graphPoints.append(history.gold as! Double)
                     let timeInterval = history.time as! Double
-                    graphPointsLabelText.append(dateFormatter.stringFromDate(NSDate(timeIntervalSince1970: timeInterval)))
+                    graphPointsLabelText.append(dateFormatter.string(from: Date(timeIntervalSince1970: timeInterval)))
                     }
                 }
             }
@@ -85,7 +85,7 @@ class HistoryViewController: UIViewController {
             //load graphview with data points
             graphView.nodata = false
             for subview in graphView.subviews {
-                    subview.hidden = false
+                    subview.isHidden = false
             }
             //9-member moving average for "1 week" datapoints
             if sender.selectedSegmentIndex  == 3 {
@@ -100,13 +100,13 @@ class HistoryViewController: UIViewController {
                 }
                 graphPoints = avgPoints
             }
-            noDataLabel.hidden = true
+            noDataLabel.isHidden = true
             startDateLabel.text = graphPointsLabelText.first
             endDateLabel.text = graphPointsLabelText.last
             middleDateLabel.text = graphPointsLabelText[graphPointsLabelText.count/2]
             graphView.graphPoints = graphPoints
-            let maxValue = round(graphPoints.maxElement()!/100)
-            let minValue = round(graphPoints.minElement()!/100)
+            let maxValue = round(graphPoints.max()!/100)
+            let minValue = round(graphPoints.min()!/100)
             let middleValue = (maxValue-minValue)/2 + minValue
             maxLabel.text = (maxValue/10).description + "k"
             minLabel.text = (minValue/10).description + "k"
@@ -118,25 +118,25 @@ class HistoryViewController: UIViewController {
             for subview in graphView.subviews {
                 //if subview.tag = 10 then its the title of the graphview, that shouldn't be hidden
                 if subview.tag != 10 {
-                    subview.hidden = true
+                    subview.isHidden = true
                 }
             }
-            noDataLabel.hidden = false
+            noDataLabel.isHidden = false
             graphView.setNeedsDisplay()
         }
     }
     
     func fetchLabelsData() {
-        let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.valueForKey("prefferedRegion") as! String
+        let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "prefferedRegion") as! String
         var data = [Int]()
-        let bottomTime = NSDate(timeIntervalSinceNow: 0).timeIntervalSince1970-86400
+        let bottomTime = Date(timeIntervalSinceNow: 0).timeIntervalSince1970-86400
         
         let moc = AppDelegate.sharedAppDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "History")
-        fetchRequest.predicate = NSPredicate(format: "region.shortName == %@ AND time>=\(Int(bottomTime))" ,prefferedRegion)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
+        let fetchRequestHistory: NSFetchRequest<History> = NSFetchRequest(entityName: "History")
+        fetchRequestHistory.predicate = NSPredicate(format: "region.shortName == %@ AND time>=\(Int(bottomTime))" ,prefferedRegion)
+        fetchRequestHistory.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
         do {
-            if let result = try moc.executeFetchRequest(fetchRequest) as? [History] {
+            if let result = try moc.fetch(fetchRequestHistory) as? [History] {
                 for history in result {
                     data.append(history.gold as! Int)
                 }
@@ -150,8 +150,8 @@ class HistoryViewController: UIViewController {
         average = average/data.count
         
         averageLabel?.text = "Daily average: \(average) gold"
-        dailyMaxLabel?.text = "Daily maximum: \(data.maxElement()!) gold"
-        dailyMinLabel?.text = "Daily minimum:  \(data.minElement()!) gold"
+        dailyMaxLabel?.text = "Daily maximum: \(data.max()!) gold"
+        dailyMinLabel?.text = "Daily minimum:  \(data.min()!) gold"
         } else {
             averageLabel?.text = ""
             dailyMaxLabel?.text = ""

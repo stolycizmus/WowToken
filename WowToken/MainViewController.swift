@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import SafariServices
 
-class MainViewController: UIViewController, NSURLSessionDownloadDelegate {
+class MainViewController: UIViewController, URLSessionDownloadDelegate {
     
     @IBOutlet weak var historyButton: Button?
     @IBOutlet weak var lastUpdatedLabel: UILabel!
@@ -33,114 +33,123 @@ class MainViewController: UIViewController, NSURLSessionDownloadDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.translucent = false
-    
-        urlSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration(), delegate: self, delegateQueue: NSOperationQueue.mainQueue())
-        urlSession.configuration.timeoutIntervalForRequest = 15
+        self.navigationController?.navigationBar.barStyle = UIBarStyle.black
+        self.navigationController?.navigationBar.isTranslucent = false
+
+        urlSessionObject = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
+        urlSessionObject.configuration.timeoutIntervalForRequest = 15
+        
         if !firstRun {
             setLabels()
         }
         
         if firstRun && (historyButton != nil) {
-            historyButton?.enabled = false
+            historyButton?.isEnabled = false
             historyButton?.alpha = 0.5
         }
         
-        refreshButton.enabled = false
+        refreshButton.isEnabled = false
         lastUpdatedLabel?.text = "Updating..."
         updateWowTokenData()
         tryingToUpdateData = true
         
         if historyContainerView != nil {
-            historyController = storyboard?.instantiateViewControllerWithIdentifier("History") as! HistoryViewController
+            historyController = storyboard?.instantiateViewController(withIdentifier: "History") as! HistoryViewController
             historyContainerView?.addSubview(historyController.view)
             historyController.loadView()
-            historyController.view.frame = CGRectMake(0, 0, (self.historyContainerView?.frame.width)!, (self.historyContainerView?.frame.height)!)
+            historyController.view.frame = CGRect(x: 0, y: 0, width: (self.historyContainerView?.frame.width)!, height: (self.historyContainerView?.frame.height)!)
             self.addChildViewController(historyController)
         }
         
-        switchAutoUpdate(AppDelegate.sharedAppDelegate.userDefaults.valueForKey("autoUpdateIsOn") as! Bool)
+        switchAutoUpdate(AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "autoUpdateIsOn") as! Bool)
     }
-
-    func switchAutoUpdate(turnOn: Bool) {
+    
+    func updateWowTokenData(){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        //pull the data from the server; url sessions handle the error end the data
+        let url = URL(string: "https://wowtoken.info/wowtoken.json")
+        let downloadTask = urlSessionObject.downloadTask(with: url!)
+        downloadTask.resume()
+    }
+    
+    func switchAutoUpdate(_ turnOn: Bool) {
         if turnOn {
-            AppDelegate.sharedAppDelegate.updateTimer = NSTimer.scheduledTimerWithTimeInterval(userDefaults.valueForKey("updateTimer") as! Double, target: self, selector: Selector("updateWowTokenData"), userInfo: nil, repeats: true)
-            let updateTimeInterval = userDefaults.valueForKey("updateTimer") as! NSTimeInterval
-            UIApplication.sharedApplication().setMinimumBackgroundFetchInterval(updateTimeInterval)
+            AppDelegate.sharedAppDelegate.updateTimer = Timer.scheduledTimer(timeInterval: userDefaults.value(forKey: "updateTimer") as! Double, target: self, selector: #selector(MainViewController.updateWowTokenData), userInfo: nil, repeats: true)
+            let updateTimeInterval = userDefaults.value(forKey: "updateTimer") as! TimeInterval
+            UIApplication.shared.setMinimumBackgroundFetchInterval(updateTimeInterval)
         } else {
             AppDelegate.sharedAppDelegate.updateTimer.invalidate()
         }
         
     }
     
-    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         //parse the data
-        parsingData(JSON(data: NSData(contentsOfURL: location)!))
+        parsingData(JSON(data: try! Data(contentsOf: location)))
         if jsonIsNotNil{
             //set labels' texts
             setLabels()
             if historyButton != nil {
                 historyButton?.alpha = 1
-                historyButton?.enabled = true
+                historyButton?.isEnabled = true
             }
         } else {
             lastUpdatedLabel?.text = "Failed to update data."
-            let alertController = UIAlertController(title: "Error", message: "Cant parse data", preferredStyle: UIAlertControllerStyle.Alert)
-            presentViewController(alertController, animated: true, completion: nil)
+            let alertController = UIAlertController(title: "Error", message: "Cant parse data", preferredStyle: UIAlertControllerStyle.alert)
+            present(alertController, animated: true, completion: nil)
         }
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
         tryingToUpdateData = false
-        refreshButton.enabled = true
+        refreshButton.isEnabled = true
         
         if historyContainerView != nil {
             historyController.fetchGraphData(historyController.intervallumPicker)
-            UIView.animateWithDuration(0.5, animations: { () -> Void in
+            UIView.animate(withDuration: 0.5, animations: { () -> Void in
                self.historyContainerView?.alpha = 1.0
             })
         }
     }
     
-    func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: NSError?) {
         if error != nil {
             lastUpdatedLabel?.text = "Failed to update data."
-            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil)
+            let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: nil)
             alertController.addAction(okAction)
             tryingToUpdateData = false
-            refreshButton.enabled = true
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            presentViewController(alertController, animated: true, completion: nil)
+            refreshButton.isEnabled = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            present(alertController, animated: true, completion: nil)
         }
     }
     
     @IBAction func queryData(){
         lastUpdatedLabel?.text = "Updating..."
-        refreshButton.enabled = false
+        refreshButton.isEnabled = false
         updateWowTokenData()
     }
 
-    @IBAction func openWowTokenInfo(sender: AnyObject) {
-        let safariView = SFSafariViewController(URL: NSURL(string: "http://wowtoken.info")!)
-        presentViewController(safariView, animated: true, completion: nil)
+    @IBAction func openWowTokenInfo(_ sender: AnyObject) {
+        let safariView = SFSafariViewController(url: URL(string: "http://wowtoken.info")!)
+        present(safariView, animated: true, completion: nil)
     }
     
     func setLabels(){
-        let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.valueForKey("prefferedRegion") as! String
+        let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "prefferedRegion") as! String
         let moc = AppDelegate.sharedAppDelegate.managedObjectContext
         
-        var fetchRequest = NSFetchRequest(entityName: "Regions")
-        fetchRequest.predicate = NSPredicate(format: "shortName == %@", prefferedRegion)
+        let fetchRequestRegions: NSFetchRequest<Regions> = NSFetchRequest(entityName: "Regions")
+        fetchRequestRegions.predicate = NSPredicate(format: "shortName == %@", prefferedRegion)
         do {
-            if let result = try moc.executeFetchRequest(fetchRequest) as? [Regions] {
+            if let result = try moc.fetch(fetchRequestRegions) as? [Regions] {
                 realmNameLabel?.text = result[0].fullName
             }
         } catch {}
         
-        fetchRequest = NSFetchRequest(entityName: "Formatted")
-        fetchRequest.predicate = NSPredicate(format: "update.region.shortName == %@", prefferedRegion)
+        let fetchRequestFormatted: NSFetchRequest<Formatted> = NSFetchRequest(entityName: "Formatted")
+        fetchRequestFormatted.predicate = NSPredicate(format: "update.region.shortName == %@", prefferedRegion)
         do {
-            if let result = try moc.executeFetchRequest(fetchRequest) as? [Formatted]{
+            if let result = try moc.fetch(fetchRequestFormatted) as? [Formatted]{
                 let buyprice = result[0].buy! as String
                 let max24gold = result[0].max24! as String
                 let min24gold = result[0].min24! as String
@@ -152,12 +161,12 @@ class MainViewController: UIViewController, NSURLSessionDownloadDelegate {
         } catch {}
         
         if currentRawPrice != 0{
-            fetchRequest = NSFetchRequest(entityName: "History")
-            fetchRequest.predicate = NSPredicate(format: "region.shortName == %@", prefferedRegion)
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: false)]
-            fetchRequest.fetchLimit = 10
+            let fetchRequestHistory: NSFetchRequest<History> = NSFetchRequest(entityName: "History")
+            fetchRequestHistory.predicate = NSPredicate(format: "region.shortName == %@", prefferedRegion)
+            fetchRequestHistory.sortDescriptors = [NSSortDescriptor(key: "time", ascending: false)]
+            fetchRequestHistory.fetchLimit = 10
             do {
-                if let result = try moc.executeFetchRequest(fetchRequest) as? [History]{
+                if let result = try moc.fetch(fetchRequestHistory) as? [History]{
                     var i = 0
                     while (currentRawPrice == (result[i].gold as! Int)) && i<10 {
                         i += 1
@@ -174,45 +183,45 @@ class MainViewController: UIViewController, NSURLSessionDownloadDelegate {
             } catch {}
         }
         
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeStyle = .ShortStyle
-        let lastQueryTime = NSDate(timeIntervalSince1970: userDefaults.valueForKey("lastUpdated") as! Double)
-        lastUpdatedLabel?.text = "Last query: \(dateFormatter.stringFromDate(lastQueryTime))"
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        let lastQueryTime = Date(timeIntervalSince1970: userDefaults.value(forKey: "lastUpdated") as! Double)
+        lastUpdatedLabel?.text = "Last query: \(dateFormatter.string(from: lastQueryTime))"
         
     }
 
-    @IBAction func unwindToMainView(segue: UIStoryboardSegue){
+    @IBAction func unwindToMainView(_ segue: UIStoryboardSegue){
         if  prefferedRegionChanged {
-            let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.valueForKey("prefferedRegion") as! String
-            let fetchRequest = NSFetchRequest(entityName: "Regions")
+            let prefferedRegion = AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "prefferedRegion") as! String
+            let fetchRequest: NSFetchRequest<Regions> = NSFetchRequest(entityName: "Regions")
             fetchRequest.predicate = NSPredicate(format: "shortName == %@", prefferedRegion)
             do {
-                if let result = try managedObjectContext.executeFetchRequest(fetchRequest) as? [Regions]{
+                if let result = try managedObjectContext.fetch(fetchRequest) as? [Regions]{
                     if result == [] {
                         firstRun = true
                     } else { firstRun = true }
                 }
             } catch {}
             
-            refreshButton.enabled = false
+            refreshButton.isEnabled = false
             lastUpdatedLabel?.text = "Updating..."
             updateWowTokenData()
             tryingToUpdateData = true
         }
         
         if autoUpdateStateChanged {
-            switchAutoUpdate(userDefaults.valueForKey("autoUpdateIsOn") as! Bool)
+            switchAutoUpdate(userDefaults.value(forKey: "autoUpdateIsOn") as! Bool)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsSegue" {
-            let navContrl = segue.destinationViewController as! UINavigationController
+            let navContrl = segue.destination as! UINavigationController
             let vc = navContrl.topViewController as! SettingsTableViewController
-            vc.originalRegion = AppDelegate.sharedAppDelegate.userDefaults.valueForKey("prefferedRegion") as! String
+            vc.originalRegion = AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "prefferedRegion") as! String
         }
         if segue.identifier == "history" {
-            let vc = segue.destinationViewController as! HistoryViewController
+            let vc = segue.destination as! HistoryViewController
             vc.navigated = true
         }
     }

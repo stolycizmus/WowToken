@@ -24,7 +24,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        autoUpdateSwicth.on = AppDelegate.sharedAppDelegate.userDefaults.valueForKey("autoUpdateIsOn") as! Bool
+        autoUpdateSwicth.isOn = AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "autoUpdateIsOn") as! Bool
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,44 +38,44 @@ class SettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 0 && tableView.cellForRowAtIndexPath(indexPath) != lastSelectedRegion{
-            userDefaults.setValue(regionNames[indexPath.row], forKey: "prefferedRegion")
-            if regionNames[indexPath.row] != originalRegion {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (indexPath as NSIndexPath).section == 0 && tableView.cellForRow(at: indexPath) != lastSelectedRegion{
+            userDefaults.setValue(regionNames[(indexPath as NSIndexPath).row], forKey: "prefferedRegion")
+            if regionNames[(indexPath as NSIndexPath).row] != originalRegion {
                 prefferedRegionChanged = true
             } else { prefferedRegionChanged = false }
             
-            lastSelectedRegion.accessoryType = UITableViewCellAccessoryType.None
-            let cell = tableView.cellForRowAtIndexPath(indexPath)!
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+            lastSelectedRegion.accessoryType = UITableViewCellAccessoryType.none
+            let cell = tableView.cellForRow(at: indexPath)!
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
             lastSelectedRegion = cell
             
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             
-        } else if indexPath.section == 0 && tableView.cellForRowAtIndexPath(indexPath) == lastSelectedRegion {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        } else if (indexPath as NSIndexPath).section == 0 && tableView.cellForRow(at: indexPath) == lastSelectedRegion {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        let row = regionNames.indexOf(userDefaults.valueForKey("prefferedRegion") as! String)
-        if indexPath.section == 0 && indexPath.row == row {
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let row = regionNames.index(of: userDefaults.value(forKey: "prefferedRegion") as! String)
+        if (indexPath as NSIndexPath).section == 0 && (indexPath as NSIndexPath).row == row {
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
             lastSelectedRegion = cell
         }
-        if indexPath.section == 1 && indexPath.row == 1 {
-            let updateInterval = userDefaults.valueForKey("updateTimer") as! Int
-            cell.detailTextLabel?.text = updateIntervalStringValues[updateIntervalRawValues.indexOf(updateInterval)!]
-            cell.hidden = !(AppDelegate.sharedAppDelegate.userDefaults.valueForKey("autoUpdateIsOn") as! Bool)
+        if (indexPath as NSIndexPath).section == 1 && (indexPath as NSIndexPath).row == 1 {
+            let updateInterval = userDefaults.value(forKey: "updateTimer") as! Int
+            cell.detailTextLabel?.text = updateIntervalStringValues[updateIntervalRawValues.index(of: updateInterval)!]
+            cell.isHidden = !(AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "autoUpdateIsOn") as! Bool)
         }
     }
 
-    @IBAction func autoUpdateChanged(sender: UISwitch){
+    @IBAction func autoUpdateChanged(_ sender: UISwitch){
         autoUpdateChanged = true
-        AppDelegate.sharedAppDelegate.userDefaults.setValue(sender.on, forKey: "autoUpdateIsOn")
-        if sender.on {
-            tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1))?.hidden = false
-        } else { tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1))?.hidden = true }
+        AppDelegate.sharedAppDelegate.userDefaults.setValue(sender.isOn, forKey: "autoUpdateIsOn")
+        if sender.isOn {
+            tableView.cellForRow(at: IndexPath(row: 1, section: 1))?.isHidden = false
+        } else { tableView.cellForRow(at: IndexPath(row: 1, section: 1))?.isHidden = true }
     }
     
     /*
@@ -124,8 +124,8 @@ class SettingsTableViewController: UITableViewController {
     */
 
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? MainViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MainViewController {
             vc.prefferedRegionChanged = prefferedRegionChanged
             vc.autoUpdateStateChanged = autoUpdateChanged
         }

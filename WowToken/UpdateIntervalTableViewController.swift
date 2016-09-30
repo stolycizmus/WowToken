@@ -10,7 +10,7 @@ import UIKit
 
 class UpdateIntervalTableViewController: UITableViewController {
     
-    var updateInterval = AppDelegate.sharedAppDelegate.userDefaults.valueForKey("updateTimer") as! Int
+    var updateInterval = AppDelegate.sharedAppDelegate.userDefaults.value(forKey: "updateTimer") as! Int
     let updateIntervalRawValues = [300, 600, 1800, 3600, 7200, 21600, 43200, 86400]
     var lastChechMarked = UITableViewCell()
 
@@ -31,20 +31,20 @@ class UpdateIntervalTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        AppDelegate.sharedAppDelegate.userDefaults.setValue(updateIntervalRawValues[indexPath.row], forKey: "updateTimer")
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AppDelegate.sharedAppDelegate.userDefaults.setValue(updateIntervalRawValues[(indexPath as NSIndexPath).row], forKey: "updateTimer")
         let vc = self.navigationController?.viewControllers[0] as! SettingsTableViewController
-        vc.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 1, inSection: 1))?.detailTextLabel?.text = tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
-        if tableView.cellForRowAtIndexPath(indexPath) != lastChechMarked {
-            lastChechMarked.accessoryType = UITableViewCellAccessoryType.None
-            tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        } else { tableView.deselectRowAtIndexPath(indexPath, animated: true) }
+        vc.tableView.cellForRow(at: IndexPath(row: 1, section: 1))?.detailTextLabel?.text = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        if tableView.cellForRow(at: indexPath) != lastChechMarked {
+            lastChechMarked.accessoryType = UITableViewCellAccessoryType.none
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else { tableView.deselectRow(at: indexPath, animated: true) }
     }
 
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath == NSIndexPath(forRow: updateIntervalRawValues.indexOf(updateInterval)!, inSection: 0){
-            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath == IndexPath(row: updateIntervalRawValues.index(of: updateInterval)!, section: 0){
+            cell.accessoryType = UITableViewCellAccessoryType.checkmark
             lastChechMarked = cell
         }
     }

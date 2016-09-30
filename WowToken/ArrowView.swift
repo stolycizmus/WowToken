@@ -12,29 +12,29 @@ import UIKit
     @IBInspectable var isUp: Bool = true
     
     
-    override func drawRect(rect: CGRect) {
-        self.backgroundColor = UIColor.clearColor()
+    override func draw(_ rect: CGRect) {
+        self.backgroundColor = UIColor.clear
         let path = UIBezierPath()
         if isUp {
-            path.moveToPoint(CGPoint(x: rect.width/2, y: 0))
-            path.addLineToPoint(CGPoint(x: rect.width, y: rect.height*0.5))
-            path.addLineToPoint(CGPoint(x: rect.width*(2/3), y: rect.height*0.5))
-            path.addLineToPoint(CGPoint(x: rect.width*(2/3), y: rect.height))
-            path.addLineToPoint(CGPoint(x: rect.width*(1/3), y: rect.height))
-            path.addLineToPoint(CGPoint(x: rect.width*(1/3), y: rect.height*0.5))
-            path.addLineToPoint(CGPoint(x: 0, y: rect.height*0.5))
-            path.closePath()
-            UIColor.redColor().setFill()
+            path.move(to: CGPoint(x: rect.width/2, y: 0))
+            path.addLine(to: CGPoint(x: rect.width, y: rect.height*0.5))
+            path.addLine(to: CGPoint(x: rect.width*(2/3), y: rect.height*0.5))
+            path.addLine(to: CGPoint(x: rect.width*(2/3), y: rect.height))
+            path.addLine(to: CGPoint(x: rect.width*(1/3), y: rect.height))
+            path.addLine(to: CGPoint(x: rect.width*(1/3), y: rect.height*0.5))
+            path.addLine(to: CGPoint(x: 0, y: rect.height*0.5))
+            path.close()
+            UIColor.red.setFill()
         } else {
-            path.moveToPoint(CGPoint(x: rect.width/2, y: rect.height))
-            path.addLineToPoint(CGPoint(x: 0, y: rect.height*0.5))
-            path.addLineToPoint(CGPoint(x: rect.width*(1/3), y: rect.height*0.5))
-            path.addLineToPoint(CGPoint(x: rect.width*(1/3), y: 0))
-            path.addLineToPoint(CGPoint(x: rect.width*(2/3), y: 0))
-            path.addLineToPoint(CGPoint(x: rect.width*(2/3), y: rect.height*0.5))
-            path.addLineToPoint(CGPoint(x: rect.width, y: rect.height*0.5))
-            path.closePath()
-            UIColor.greenColor().setFill()
+            path.move(to: CGPoint(x: rect.width/2, y: rect.height))
+            path.addLine(to: CGPoint(x: 0, y: rect.height*0.5))
+            path.addLine(to: CGPoint(x: rect.width*(1/3), y: rect.height*0.5))
+            path.addLine(to: CGPoint(x: rect.width*(1/3), y: 0))
+            path.addLine(to: CGPoint(x: rect.width*(2/3), y: 0))
+            path.addLine(to: CGPoint(x: rect.width*(2/3), y: rect.height*0.5))
+            path.addLine(to: CGPoint(x: rect.width, y: rect.height*0.5))
+            path.close()
+            UIColor.green.setFill()
         }
         path.fill()
         

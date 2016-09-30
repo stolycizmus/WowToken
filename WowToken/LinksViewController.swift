@@ -18,34 +18,34 @@ class LinksViewController: UIViewController {
         
     }
 
-    @IBAction func grayIconTapped(sender: AnyObject) {
-        let safariView = SFSafariViewController(URL: NSURL(string: "http://www.wowhead.com/item=122270/wow-token")!)
-        presentViewController(safariView, animated: true, completion: nil)
+    @IBAction func grayIconTapped(_ sender: AnyObject) {
+        let safariView = SFSafariViewController(url: URL(string: "http://www.wowhead.com/item=122270/wow-token")!)
+        present(safariView, animated: true, completion: nil)
     }
     
-    @IBAction func colorIconTapped(sender: AnyObject) {
-        let safariView = SFSafariViewController(URL: NSURL(string: "http://www.wowhead.com/item=122284/wow-token")!)
-        presentViewController(safariView, animated: true, completion: nil)
+    @IBAction func colorIconTapped(_ sender: AnyObject) {
+        let safariView = SFSafariViewController(url: URL(string: "http://www.wowhead.com/item=122284/wow-token")!)
+        present(safariView, animated: true, completion: nil)
     }
     
-    @IBAction func guideButtonPressed(sender: AnyObject) {
-        let safariView = SFSafariViewController(URL: NSURL(string: "http://www.wowhead.com/guides/wow-token")!)
-        presentViewController(safariView, animated: true, completion: nil)
+    @IBAction func guideButtonPressed(_ sender: AnyObject) {
+        let safariView = SFSafariViewController(url: URL(string: "http://www.wowhead.com/guides/wow-token")!)
+        present(safariView, animated: true, completion: nil)
     }
     
-    @IBAction func officialSiteButtonTapped(sender: AnyObject) {
-        let safariView = SFSafariViewController(URL: NSURL(string: "http://battle.net/shop/product/world-of-warcraft-token")!)
-        presentViewController(safariView, animated: true, completion: nil)
+    @IBAction func officialSiteButtonTapped(_ sender: AnyObject) {
+        let safariView = SFSafariViewController(url: URL(string: "http://battle.net/shop/product/world-of-warcraft-token")!)
+        present(safariView, animated: true, completion: nil)
     }
     
-    @IBAction func dataButtonTapped(sender: AnyObject) {
-        let safariView = SFSafariViewController(URL: NSURL(string: "http://wowtoken.info")!)
-        presentViewController(safariView, animated: true, completion: nil)
+    @IBAction func dataButtonTapped(_ sender: AnyObject) {
+        let safariView = SFSafariViewController(url: URL(string: "http://wowtoken.info")!)
+        present(safariView, animated: true, completion: nil)
     }
     
-    @IBAction func licenseButtonTapped(sender: AnyObject) {
-        let safariView = SFSafariViewController(URL: NSURL(string: "http://opendatacommons.org/licenses/by/1.0/")!)
-        presentViewController(safariView, animated: true, completion: nil)
+    @IBAction func licenseButtonTapped(_ sender: AnyObject) {
+        let safariView = SFSafariViewController(url: URL(string: "http://opendatacommons.org/licenses/by/1.0/")!)
+        present(safariView, animated: true, completion: nil)
     }
 
 }
